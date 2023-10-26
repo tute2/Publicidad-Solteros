@@ -4,75 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Tablón de Anuncios Solteros</title>
+    <title>Partidos Políticos Solteros 2023</title>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-        </nav>
+        <h1>Tablón Publicitario</h1>
+        <p id="party-description">Partidos presentados</p>
+        <p id="countdown">Las votaciones empiezan en:</p>
     </header>
     <main>
-        <div id="countdown-container">
-            <h2>Las votaciones empiezan en</h2>
-            <div id="countdown"></div>
-        </div>
-    <section class="partidos">
-        <div id="countdown"></div>
-        <div class="anuncio">
-            <img src="IMG-20231026-WA0029.jpg" alt="Anuncio 1">
-            <p>Juntos x el Cambio</p>
-        </div>
-        <!-- Repite este bloque para otros anuncios -->
-    </section>
-    <section class="noticias">
-        <div class="anuncio">
-            <img src="IMG-20231026-WA0019.jpg" alt="Anuncio 2">
-            <p>Hacemos x Nuestro País</p>
-        </div>
-        <!-- Repite este bloque para otros anuncios -->
-    </section>
-    <section class="noticias">
-        <div class="anuncio">
-            <img src="IMG-20231026-WA0006.jpg" alt="Anuncio 2">
-            <p>Frente de Izquierda</p>
-        </div>
-        <!-- Repite este bloque para otros anuncios -->
-    </section>
-    <aside class="sidebar">
-        <!-- Aquí puedes colocar enlaces a redes sociales, formulario de contacto, etc. -->
-    </aside>
-    <footer>
-        <!-- Información de contacto y derechos de autor -->
-    </footer>
+        <section class="party">
+            <img src="ruta-de-la-imagen-1.jpg" alt="Partido 1">
+            <h2>Partido 1</h2>
+        </section>
+        <section class="party">
+            <img src="ruta-de-la-imagen-2.jpg" alt="Partido 2">
+            <h2>Partido 2</h2>
+        </section>
+        <!-- Repite esto para cada partido -->
+    </main>
     <script>
-    // Define la fecha y hora de finalización (2 de noviembre a las 11:00 AM).
-    const countdownDate = new Date('2023-11-02T11:00:00').getTime();
+    // Define la fecha y hora de finalización (jueves a las 11:35)
+    const countdownDate = new Date('2023-10-27T11:35:00');
 
-    // Actualiza el contador cada segundo.
-    const x = setInterval(function() {
-        // Obtiene la fecha y hora actual.
-        const now = new Date().getTime();
-        
-        // Calcula la diferencia entre la fecha de finalización y la fecha actual.
-        const distance = countdownDate - now;
-        
-        // Calcula días, horas, minutos y segundos restantes.
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Muestra el temporizador en un elemento HTML.
-        document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        
-        // Si el tiempo ha terminado, muestra un mensaje.
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById('countdown').innerHTML = '¡Las votaciones han empezado!';
+    // Función para actualizar el temporizador
+    function updateCountdown() {
+        const now = new Date();
+        const timeDifference = countdownDate - now;
+
+        if (timeDifference <= 0) {
+            document.getElementById('countdown').textContent = 'Las votaciones han comenzado';
+        } else {
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').textContent = `Las votaciones empiezan en: ${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
-    }, 1000);
-</script>
+    }
+
+    // Actualiza el temporizador cada segundo
+    setInterval(updateCountdown, 1000);
+
+    // Llama a la función para mostrar el temporizador
+    updateCountdown();
+    </script>
 </body>
 </html>
