@@ -1,48 +1,54 @@
-/* Define tus colores aquí o utiliza estos colores básicos como ejemplo */
 body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     background-color: #333;
-    color: #fff;
+    color: white;
+    text-align: center;
     padding: 20px;
 }
 
-header h1 {
+h1 {
     font-size: 24px;
+}
+
+#party-description {
+    font-size: 18px;
 }
 
 main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    min-height: 70vh;
 }
 
-#countdown-container {
-    background-color: #000;
-    color: #fff;
+.party {
+    background-color: white;
+    border: 1px solid #ddd;
+    margin: 10px;
     padding: 20px;
-    border-radius: 10px;
+    width: 300px;
     text-align: center;
-    font-size: 24px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.party img {
+    max-width: 100%;
+}
+
+.party h2 {
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 #countdown {
-    font-size: 36px;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
 }
 
-.sidebar {
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-}
+/* Estilos adicionales específicos de Apple y Pinterest pueden agregarse aquí */
