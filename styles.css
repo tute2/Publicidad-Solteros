@@ -26,18 +26,19 @@ nav a {
     color: #fff;
 }
 
-.partidos {
+.partidos, .noticias {
     background-color: #fff;
     padding: 20px;
     margin: 20px;
     border: 1px solid #ddd;
 }
 
-.noticias {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px;
-    border: 1px solid #ddd;
+.anuncio {
+    margin-bottom: 20px;
+}
+
+.anuncio img {
+    max-width: 100%;
 }
 
 .sidebar {
