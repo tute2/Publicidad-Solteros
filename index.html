@@ -11,12 +11,10 @@
         <nav>
             <ul>
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Partidos</a></li>
-                <li><a href="#">Noticias</a></li>
-            </ul>
         </nav>
     </header>
     <section class="partidos">
+        <div id="countdown"></div>
         <div class="anuncio">
             <img src="IMG-20231026-WA0029.jpg" alt="Anuncio 1">
             <p>Juntos x el Cambio</p>
@@ -43,5 +41,33 @@
     <footer>
         <!-- Información de contacto y derechos de autor -->
     </footer>
+    <script>
+    // Define la fecha y hora de finalización (2 de noviembre a las 11:00 AM).
+    const countdownDate = new Date('2023-11-02T11:00:00').getTime();
+
+    // Actualiza el contador cada segundo.
+    const x = setInterval(function() {
+        // Obtiene la fecha y hora actual.
+        const now = new Date().getTime();
+        
+        // Calcula la diferencia entre la fecha de finalización y la fecha actual.
+        const distance = countdownDate - now;
+        
+        // Calcula días, horas, minutos y segundos restantes.
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Muestra el temporizador en un elemento HTML.
+        document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        
+        // Si el tiempo ha terminado, muestra un mensaje.
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById('countdown').innerHTML = '¡Las votaciones han empezado!';
+        }
+    }, 1000);
+</script>
 </body>
 </html>
