@@ -87,3 +87,7 @@ main {
     background-color: #d84315; /* Cambia el color de fondo al pasar el cursor */
 }
 
+.party a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: #000000; /* Cambia el color a tu elección */
+}
